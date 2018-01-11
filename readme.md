@@ -1,16 +1,16 @@
 ## 简介
-JbootFly 是一个由 Jboot + Fly（一个html模板，网址）开发的社区，功能完成 99%。
+JbootFly 是一个由 Jboot + Fly（一个html模板，网址）开发的社区。
 
 
 ## 运行
-1、请先在数据库上 建表和插入数据，sql在resource下JbootFly.sql.
-2、配置 jboot.properties 文件的数据库账号密码
-3、运行 App.java 的 main 方法启动
+* 请先在数据库上 建表和插入数据，sql在resource下JbootFly.sql.
+* 配置 jboot.properties 文件的数据库账号密码
+* 运行 App.java 的 main 方法启动
 
 ## 其他
-1、默认 admin@jboot.io 为管理员，密码是 111111
-2、管理员（user表role字段为 admin 的）可以对任意帖子进行置顶、推荐、编辑、删除等
-3、管理员 可以激活其他成员，激活页面在用户中心里
+* 默认 admin@jboot.io 为管理员，密码是 111111
+* 管理员（user表role字段为 admin 的）可以对任意帖子进行置顶、推荐、编辑、删除等
+* 管理员 可以激活其他成员，激活页面在用户中心里
 
 
 ## JbootFly 截图
