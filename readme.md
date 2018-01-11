@@ -2,7 +2,7 @@
 JbootFly 是一个由 Jboot + Fly（一个html模板，网址：http://www.layui.com/template/fly/ ）开发的社区。
 
 
-## 功能清单
+## 功能清单（已经全部完成并正常运行）
 
 * 登陆、注册、验证码
 * 发帖、回帖
