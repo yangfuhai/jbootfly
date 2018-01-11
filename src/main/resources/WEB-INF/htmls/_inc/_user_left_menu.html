@@ -1,0 +1,35 @@
+<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="user">
+    <li class="layui-nav-item">
+        <a href="/user/#(USER.id)">
+            <i class="layui-icon">&#xe756;</i>
+            我的主页
+        </a>
+    </li>
+    <li class="layui-nav-item #(index == 1 ? 'layui-this' : '')">
+        <a href="/user/post">
+            <i class="layui-icon">&#xe63c;</i>
+            我的帖子
+        </a>
+    </li>
+    <li class="layui-nav-item #(index == 2 ? 'layui-this' : '')">
+        <a href="/user/setting">
+            <i class="layui-icon">&#xe620;</i>
+            基本设置
+        </a>
+    </li>
+    <li class="layui-nav-item #(index == 3 ? 'layui-this' : '')">
+        <a href="/user/message">
+            <i class="layui-icon">&#xe611;</i>
+            我的消息
+        </a>
+    </li>
+
+    #if(USER.isAdmin())
+    <li class="layui-nav-item #(index == 4 ? 'layui-this' : '')">
+        <a href="/user/activate">
+            <i class="layui-icon">&#xe650;</i>
+            账号激活
+        </a>
+    </li>
+    #end
+</ul>

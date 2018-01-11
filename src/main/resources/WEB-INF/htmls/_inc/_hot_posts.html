@@ -1,0 +1,13 @@
+#hotPosts()
+<dl class="fly-panel fly-list-one">
+    <dt class="fly-panel-title">本周热门</dt>
+
+    #for(post : posts)
+    <dd>
+        <a href="/post/#(post.id)">#(post.title)</a>
+        <span><i class="iconfont icon-pinglun1"></i> #(post.comment_count ?? 0)</span>
+    </dd>
+    #end
+
+</dl>
+#end

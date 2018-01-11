@@ -1,0 +1,112 @@
+#define layout(title, keywords, description, page)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>#(title?? 'Jboot Fly 社区')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="#(keywords?? 'jboot,jbootfly,jboot社区,jpress')">
+    <meta name="description" content="#(description?? 'Jboot，专为大型分布式项目和微服务而生，她是一个基于JFinal 和 Undertow开发的微服务框架。')">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/css/global.css">
+</head>
+<body>
+
+<div class="fly-header layui-bg-black">
+    <div class="layui-container">
+        <a class="fly-logo" href="/">
+            <img src="/static/images/logo.png" alt="layui">
+        </a>
+        <ul class="layui-nav fly-nav layui-hide-xs">
+            <li class="layui-nav-item layui-this">
+                <a href="/"><i class="iconfont icon-jiaoliu"></i>交流</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="https://gitee.com/fuhai/jboot" target="_blank"><i class="iconfont icon-iconmingxinganli"></i>GITEE</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="https://github.com/yangfuhai/jboot" target="_blank"><i class="iconfont icon-ui"></i>GITHUB</a>
+            </li>
+        </ul>
+
+        #if(USER)
+        <!-- 登入后的状态 -->
+        <ul class="layui-nav fly-nav-user">
+            <li class="layui-nav-item">
+                <a class="fly-nav-avatar" href="javascript:;">
+                    <cite class="layui-hide-xs">#(USER.nickname ??)#if(MESSAGE_FLAG)<span class="layui-badge-dot"></span>#end</cite>
+                    #if(USER.auth_info)
+                    <i class="iconfont icon-renzheng layui-hide-xs" title="#(USER.auth_info)"></i>
+                    #end
+                    <img src="#(USER.avatar)">
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/user/post"><i class="layui-icon">&#xe63c;</i>我的帖子</a></dd>
+                    <dd><a href="/user/setting"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
+                    <dd><a href="/user/message"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息#if(MESSAGE_FLAG)<span class="layui-badge-dot"></span>#end</a></dd>
+                    <dd><a href="/user/#(USER.id)"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
+                    <hr style="margin: 5px 0;">
+                    <dd><a href="/logout" style="text-align: center;">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+        #else
+        <ul class="layui-nav fly-nav-user">
+            <!-- 未登入的状态 -->
+            <li class="layui-nav-item">
+                <a class="iconfont icon-touxiang layui-hide-xs" href="/login"></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="/login">登入</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="/register">注册</a>
+            </li>
+        </ul>
+        #end
+    </div>
+</div>
+
+
+#@content?()
+
+
+<div class="fly-footer">
+    <p><a href="http://jboot.io/" target="_blank">JBoot Fly 社区</a> 2018 &copy; <a href="http://jboot.io"  target="_blank"> Jboot.io</a></p>
+</div>
+
+<script src="/static/layui/layui.js"></script>
+<script>
+    layui.cache.page = '#(page ?? 'jie')';
+    layui.cache.user = {
+        username: '#(USER.nickname ?? "游客")'
+        ,uid: '#(USER.id ?? -1)'
+        ,avatar: '#(USER.avatar ?? "/static/images/avatar/00.jpg")'
+        ,experience: 83
+        ,sex: '男'
+    };
+    layui.config({
+        version: "3.0.0"
+        ,base: '/static/mods/'
+    }).extend({
+        fly: 'index'
+
+    }).use(['fly', 'face'], function(){
+        var $ = layui.$
+            ,fly = layui.fly;
+        //如果你是采用模版自带的编辑器，你需要开启以下语句来解析。
+
+         $('.detail-body').each(function(){
+         var othis = $(this), html = othis.html();
+         othis.html(fly.content(html));
+         });
+
+    });
+
+    #@script?()
+
+</script>
+
+</body>
+</html>
+#end

@@ -1,0 +1,52 @@
+
+#topPosts(level = level , categoryId = categoryId)
+<div class="fly-panel">
+    <div class="fly-panel-title fly-filter">
+        <a>#(title ?? "置顶帖子")</a>
+        <a href="#signin" class="layui-hide-sm layui-show-xs-block fly-right" id="LAY_goSignin" style="color: #FF5722;">去签到</a>
+    </div>
+    <ul class="fly-list">
+        #for(post : posts)
+        <li>
+            <a href="/user/#(post.user.id)" class="fly-avatar">
+                <img src="#(post.user.avatar)"
+                     alt="#(post.user.nickname)">
+            </a>
+            <h2>
+                #if(categoryId == null)
+                <a class="layui-badge">#(post.category.name)</a>
+                #end
+                <a href="/post/#(post.id)">#(post.title)</a>
+            </h2>
+            <div class="fly-list-info">
+                <a href="/user/#(post.user.id)" link>
+                    <cite>#(post.user.nickname)</cite>
+                    <!--
+                    <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
+                    <i class="layui-badge fly-badge-vip">VIP3</i>
+                    -->
+                </a>
+                <span class="fly-list-kiss layui-hide-xs" title="悬赏元宝"><i class="layui-icon" style="color: #FF7200;font-size: 14px;">&#xe62b;</i>  #(post.pay_point)</span>
+                <span>#date(post.created,"yyyy-MM-dd")</span>
+
+
+                #if(post.isFinished())
+                <span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>
+                #end
+                <span class="fly-list-nums">
+                                <i class="iconfont icon-pinglun1" title="回答"></i> #(post.comment_count)
+                            </span>
+            </div>
+            <div class="fly-list-badge">
+                #if(post.level)
+                <span class="layui-badge layui-bg-black">置顶#(post.level)</span>
+                #end
+                #if(post.isRecommend())
+                <span class="layui-badge layui-bg-red">精帖</span>
+                #end
+            </div>
+        </li>
+        #end
+    </ul>
+</div>
+#end

@@ -1,0 +1,11 @@
+<div style="text-align: center">
+    #pagination(activeClass="laypage-curr")
+    <div style="text-align: center">
+        <div class="laypage-main">
+            #for(page : pages)
+            <a href="#(page.url)" class="#(page.style)">#(page.text)</a>
+            #end
+        </div>
+    </div>
+    #end
+</div>
