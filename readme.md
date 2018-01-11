@@ -1,5 +1,5 @@
 ## 简介
-JbootFly 是一个由 Jboot + Fly（一个html模板，网址）开发的社区。
+JbootFly 是一个由 Jboot + Fly（一个html模板，网址：http://www.layui.com/template/fly/ ）开发的社区。
 
 
 ## 运行
