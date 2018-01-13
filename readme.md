@@ -2,6 +2,13 @@
 JbootFly 是一个由 Jboot + Fly（一个html模板，网址：http://www.layui.com/template/fly/ ）开发的社区。
 
 
+Jboot是一个基于JFinal 和 Undertow开发的微服务框架。提供了AOP、RPC、分布式缓存、限流、降级、熔断、统一配置中心、swagger api自动生成、
+Opentracing数据追踪、metric数据监控、分布式session、代码生成器、shiro安全控制等功能。
+
+
+Jboot网址：https://gitee.com/fuhai/jboot
+
+
 ## 功能清单（已经全部完成并正常运行）
 
 * 登陆、注册、验证码
